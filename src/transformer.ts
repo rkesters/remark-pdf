@@ -92,7 +92,7 @@ export function mdastToPdf(
     content,
     images,
     defaultStyle: {
-      font: isBrowser() ? "Roboto" : "Helvetica",
+      font: isBrowser() ? "Roboto" : "Roboto",
     },
     styles: {
       [HEADING_1]: {

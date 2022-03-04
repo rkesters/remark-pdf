@@ -1,6 +1,4 @@
 import type { Plugin } from "unified";
-import * as mdast from "mdast";
-import { visit } from "unist-util-visit";
 import { mdastToPdf, Opts, ImageDataMap } from "./transformer";
 
 import Printer from "pdfmake";

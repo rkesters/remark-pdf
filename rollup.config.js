@@ -7,11 +7,8 @@ export default [
     output: [
       {
         file: pkg.main,
-        format: "cjs",
-      },
-      {
-        file: pkg.module,
-        format: "es",
+        format: "umd",
+		name: pkg.main
       },
     ],
     external: Object.keys(pkg.dependencies),
@@ -21,12 +18,9 @@ export default [
     input: "src/node.ts",
     output: [
       {
-        file: "lib/node.mjs",
-        format: "cjs",
-      },
-      {
         file: "lib/node.js",
-        format: "es",
+		name: "lib/node.js",
+        format: "umd",
       },
     ],
     external: Object.keys(pkg.dependencies),
