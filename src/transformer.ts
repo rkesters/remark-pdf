@@ -1,4 +1,4 @@
-import * as mdast from "./models/mdast";
+import * as mdast from "./models/mdast.js";
 import type {
   Alignment,
   Content as AllContent,
@@ -13,7 +13,7 @@ import type {
   TDocumentDefinitions,
   TDocumentInformation,
 } from "pdfmake/interfaces";
-import { error, isBrowser } from "./utils";
+import { error, isBrowser } from "./utils.js";
 
 type Content = Exclude<AllContent, any[]>;
 

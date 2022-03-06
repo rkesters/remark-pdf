@@ -1,10 +1,16 @@
 import type { Plugin } from "unified";
-import { mdastToPdf, Opts, ImageDataMap } from "./transformer";
+import { mdastToPdf, Opts, ImageDataMap } from "./transformer.js";
 
 import Printer from "pdfmake";
-import { error } from "./utils";
+import { error } from "./utils.js";
 
 const printer = new Printer({
+  Roboto: {
+    normal: "Roboto-Regular.ttf",
+    bold: "Roboto-Medium.ttf",
+    italics: "Roboto-Italic.ttf",
+    bolditalics: "Roboto-MediumItalic.ttf",
+  },
   Courier: {
     normal: "Courier",
     bold: "Courier-Bold",

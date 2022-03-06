@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "esnext",
+    "module": "es2020",
     "moduleResolution": "node",
     "lib": ["esnext"],
     "strict": true,
@@ -12,7 +12,8 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+	"outDir": "lib"
   },
-  "include": ["src"],
+  "include": ["src", "test/index.spec.ts"],
   "exclude": ["node_modules", "src/**/*.spec.*"]
 }

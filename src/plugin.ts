@@ -1,8 +1,10 @@
 import type { Plugin } from "unified";
-import { mdastToPdf, Opts, ImageDataMap } from "./transformer";
+import { mdastToPdf, Opts, ImageDataMap } from "./transformer.js";
 
-import * as pdfMake from "pdfmake/build/pdfmake";
-import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import pdfMake from "pdfmake/build/pdfmake.js";
+import  pdfFonts from "pdfmake/build/vfs_fonts.js";
+
+
 
 const fonts = {
 	Roboto: {
@@ -41,12 +43,9 @@ export type Options = Opts;
 
 const remarkPdf: Plugin<[Options?]> = function (opts = {}) {
   let images: ImageDataMap = {};
-  console.log(`output 1 ${opts.output}`); 
   this.Compiler = async (node) => {
-	console.log(`Calling PDF compiler`);
     const out =  await mdastToPdf(node as any, opts, images, async (def): Promise<Buffer | Blob | undefined> => {
       const pdf = pdfMake.createPdf(def, undefined, fonts, pdfFonts.pdfMake.vfs);
-	  console.log(`output ${opts.output}`); 
 	  switch (opts.output ?? "buffer") {
         case "buffer":
           return new Promise((resolve) => {
@@ -60,7 +59,6 @@ const remarkPdf: Plugin<[Options?]> = function (opts = {}) {
 			console.log(`Bad output ${opts.output}`);
       }
     });
-	console.trace(`mdastToPdf completed`)
 	return out as Buffer | Blob;
   };
 };
